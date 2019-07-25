@@ -3,6 +3,8 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "dockerdevbox"
   config.vm.network "private_network", ip: "192.168.10.101"
   config.vm.network "forwarded_port", guest: 5432, host: 5432, guest_ip: "localhost", id: "postgres"
+  config.vm.network "forwarded_port", guest: 80, host: 80, guest_ip: "localhost", id: "httplistener"
+  config.vm.network "forwarded_port", guest: 443, host: 443, guest_ip: "localhost", id: "httpslistener"
   config.vm.provider "virtualbox" do |vb|
     vb.name = "dockerdevbox"
     vb.memory = 2048
