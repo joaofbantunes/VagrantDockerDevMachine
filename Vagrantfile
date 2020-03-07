@@ -5,6 +5,11 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 5432, host: 5432, guest_ip: "localhost", id: "postgres"
   config.vm.network "forwarded_port", guest: 80, host: 80, guest_ip: "localhost", id: "httplistener"
   config.vm.network "forwarded_port", guest: 443, host: 443, guest_ip: "localhost", id: "httpslistener"
+  config.vm.network "forwarded_port", guest: 2181, host: 2181, guest_ip: "localhost", id: "zookeeper"
+  config.vm.network "forwarded_port", guest: 9092, host: 9092, guest_ip: "localhost", id: "kafka"
+  config.vm.network "forwarded_port", guest: 29092, host: 29092, guest_ip: "localhost", id: "kafka2"
+  config.vm.network "forwarded_port", guest: 9021, host: 9021, guest_ip: "localhost", id: "kafka-control-center"
+
   config.vm.provider "virtualbox" do |vb|
     vb.name = "dockerdevbox"
     vb.memory = 2048
